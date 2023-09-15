@@ -1,0 +1,80 @@
+<!-- views/interview.ejs -->
+
+<link rel="stylesheet" href="/css/interview.css">
+
+<div id="interview-container">
+  <h1>Interview Assignment</h1>
+
+  <!-- Form to assign interviews -->
+  <form action="/interviews/assign" method="POST">
+    <!-- Student selection -->
+    <label for="studentId">Select Student:</label>
+    <select name="studentId" id="studentId" required>
+      <% students.forEach(student => { %>
+        <option value="<%= student._id %>"><%= student.name %></option>
+      <% }) %>
+    </select><br>
+
+    <!-- Company selection -->
+    <label for="companyId">Select Company:</label>
+    <select name="companyId" id="companyId" required>
+      <% companies.forEach(company => { %>
+        <option value="<%= company._id %>"><%= company.name %></option>
+      <% }) %>
+    </select><br>
+
+
+    <!-- Interview Date and Time -->
+    <label for="interviewDateTime">Interview Date and Time:</label>
+    <input type="datetime-local" name="interviewDateTime" id="interviewDateTime" required><br>
+
+
+    <!-- Interview Status -->
+    <label for="status">Status:</label>
+    <select name="status" id="status" required>
+      <option value="Pending">Pending</option>
+      <option value="Placed">Placed</option>
+      <option value="Not Placed">Not Placed</option>
+    </select><br>
+
+    <!-- Submit button -->
+    <button type="submit">Assign Interview</button>
+  </form>
+
+  <!-- List of assigned interviews -->
+  <h2>Assigned Interviews</h2>
+  <% if (interviews.length > 0) { %>
+    <ul class="interview-list">
+      <% interviews.forEach(interview => { %>
+        <li>
+          <strong>Student:</strong> <%= interview.studentDetails[0].name %><br>
+          <strong>Company:</strong> <%= interview.companyDetails[0].name %><br>
+          <strong>Interview Date:</strong> <%= interview.interviewDate %><br>
+          <strong>Status:</strong> <%= interview.status %><br>
+          <button class="update-button" data-interview-id="<%=interview._id%>">Update</button>
+          <form class="interview-edit-form" id="interview-edit-form-<%= interview._id %>" style="display: none;">
+
+            <select name="status" required>
+              <option disabled selected>Choose an option</option>
+              <option value="Pending">Pending</option>
+              <option value="Placed">Placed</option>
+              <option value="Not placed">Not Placed</option>
+            </select>
+
+            <button class="save-button" data-interview-id="<%= interview._id %>">Save</button>
+          </form>
+
+          <button type="submit">
+            <a href="/interviews/deleteInterview/<%= interview._id %>">Delete</a>
+          </button>
+        </li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p>No interviews assigned.</p>
+  <% } %>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/interviews.js"></script>

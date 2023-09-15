@@ -1,0 +1,96 @@
+/* public/css/interview.scss */
+#interview-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  text-align: center;
+}
+#interview-container h1 {
+  color: #222831;
+}
+#interview-container h2 {
+  color: #00adb5;
+}
+#interview-container form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#interview-container form label {
+  font-weight: bold;
+  color: #333;
+}
+#interview-container form select,
+#interview-container form input[type=date] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+#interview-container form button[type=submit] {
+  height: 30px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #00ADB5;
+  color: #EEEEEE;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#interview-container form button[type=submit]:hover {
+  background-color: #393e46;
+}
+#interview-container .interview-list {
+  list-style: none;
+  padding: 0;
+}
+#interview-container .interview-list li {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #eeeeee;
+  color: #222831;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: left;
+}
+#interview-container .interview-list li .update-button {
+  padding: 1%;
+}
+#interview-container .interview-list li .save-button {
+  padding: 1%;
+}
+#interview-container .interview-list li strong {
+  font-weight: bold;
+}
+#interview-container .interview-list li:last-child {
+  margin-bottom: 0;
+}
+#interview-container .interview-list li button {
+  margin: 4% 10% 0 0;
+  height: 30px;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #00ADB5;
+  color: #EEEEEE;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+}
+#interview-container .interview-list li button a {
+  padding: 2px;
+  text-decoration: none;
+}
+#interview-container .interview-list li button:hover {
+  background-color: #393E46; /* Darker background color on hover */
+}
+#interview-container p {
+  color: #333;
+}

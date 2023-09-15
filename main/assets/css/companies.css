@@ -1,0 +1,95 @@
+#main-div-companies {
+  margin-top: 2%;
+  width: 90%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 1%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  /* Add styling for the table */
+}
+#main-div-companies h1 {
+  text-align: center;
+  padding-top: 1%;
+  color: #333;
+}
+#main-div-companies #headings {
+  width: 55rem;
+  height: 3vh;
+  display: flex;
+  align-items: center;
+}
+#main-div-companies #headings p {
+  margin: 0;
+  margin-left: 8%;
+  margin-right: 8%;
+  font-weight: bold;
+  color: #333; /* Darker text color */
+}
+#main-div-companies form {
+  display: flex;
+  flex-wrap: wrap; /* Allow form elements to wrap to the next line */
+  justify-content: space-between; /* Space elements evenly between headings */
+  padding: 2%;
+  align-items: flex-start; /* Align form elements to the top */
+  margin-top: 20px; /* Add margin to separate form from table */
+}
+#main-div-companies form input {
+  margin-top: 0.25em;
+  width: 11em;
+}
+#main-div-companies form select,
+#main-div-companies form button {
+  width: 25%;
+  height: 30px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+#main-div-companies form button {
+  background-color: #00ADB5;
+  width: 5em;
+  color: #EEEEEE;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+}
+#main-div-companies form button:hover {
+  background-color: #393E46; /* Darker background color on hover */
+}
+#main-div-companies table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+#main-div-companies table th,
+#main-div-companies table td {
+  padding: 10px;
+  text-align: center;
+}
+#main-div-companies table th {
+  background-color: #00ADB5;
+  color: #EEEEEE;
+}
+#main-div-companies table td {
+  background-color: #393E46;
+  color: #EEEEEE;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+#main-div-companies table button {
+  height: 30px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #00ADB5;
+  color: #EEEEEE;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+}
+#main-div-companies table button a {
+  text-decoration: none;
+}
+#main-div-companies table button:hover {
+  background-color: #393E46; /* Darker background color on hover */
+}

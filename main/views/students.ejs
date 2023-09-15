@@ -1,0 +1,115 @@
+<link rel="stylesheet" href="/css/students.css">
+
+<div id="main-div-students">
+    <h1>
+        Add Student Details
+    </h1>
+    
+    <div id="headings">
+        <p>Name</p>
+        <p>Email</p>
+        <p>College</p>
+        <p>DSA</p>
+        <p>WebD</p>
+        <p>React</p>
+        <p class="status">Status</p>
+        <p class="final-score">Final Score</p>
+    </div>
+
+    <form action="/students/add" method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="college" placeholder="College Name" required>
+        <input type="number" name="DSAscores" placeholder="DSA Score">
+        <input type="number" name="WEBDscores" placeholder="Web-D Score">
+        <input type="number" name="REACTscores" placeholder="React Score">
+        <select name="status" required>
+            <option disabled selected>Choose an option</option>
+            <option value="Pending">Pending</option>
+            <option value="Placed">Placed</option>
+            <option value="Not placed">Not Placed</option>
+        </select>
+        <select name="FINALresult" required>
+            <option disabled selected>Choose an option</option>
+            <option value="Pass">Pass</option>
+            <option value="Fail">Fail</option>
+            <option value="On Hold">On Hold</option>
+            <option value="Didn't Attempt">Didn't Attempt</option>
+        </select>
+
+        <button type="submit"> Add </button>
+
+    </form>
+
+    <hr>
+
+    <h1>View Student Details</h1>
+    <button id="csv-button"><a href="/csv/downloadCSV">Download CSV</a></button>
+    <!-- Display the updated student information here -->
+    <div id="student-info">
+        <% if (students.length > 0) { %>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>College</th>
+                <th>DSA Score</th>
+                <th>WebD Score</th>
+                <th>React Score</th>
+                <th>Status</th>
+                <th>Final Score</th>
+                <th>Interview</th>
+                <th colspan="2">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% students.forEach(student => { %>
+                <tr>
+                <td><%= student.name %> </td>
+                <td><%= student.email %></td>
+                <td><%= student.college %></td>
+                <td><%= student.DSAscores %></td>
+                <td><%= student.WEBDscores %></td>
+                <td><%= student.REACTscores %></td>
+                <td><%= student.status %></td>
+                <td><%= student.FINALresult %></td>
+                <td><a href="/students/<%= student._id %>/interviews">View Interviews</a></td>
+                <td>
+                    <button class="update-button" data-student-id="<%= student._id %>">Update</button>
+                    <!-- Add a form for editing student details (hidden by default) -->
+                    <form class="student-edit-form" id="student-edit-form-<%= student._id %>" style="display: none;">
+                        <!-- Include input fields for editing student details -->
+                        <input type="text" name="name" value="<%= student.name %>">
+                        <input type="email" name="email" value="<%= student.email %>">
+                        <input type="text" name="college" value="<%= student.college %>">
+                        <input type="number" name="DSAscores" value="<%= student.DSAscores %>">
+                        <input type="number" name="WEBDscores" value="<%= student.WEBDscores %>">
+                        <input type="number" name="REACTscores" value="<%= student.REACTscores %>">
+                        <input type="text" name="status" value="<%= student.status %>">
+                        <input type="text" name="FINALresult" value="<%= student.FINALresult %>">
+                        <!-- Add a submit button to save changes -->
+                        
+                        <button class="save-button" data-student-id="<%= student._id %>">Save</button>
+                        
+                    </form>
+                </td>
+                <td>
+                    <button>
+                    <a href="/students/deleteStudent/<%= student.id %>">Delete</a>
+                    </button>
+                </td>
+                </tr>
+
+            <% }) %>
+            </tbody>
+        </table>
+        <% } else { %>
+            <h2>No students found.</h2>
+        <% } %>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/students.js"></script>
+  

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/layout.css">
+    <title>Placement Cell</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css" integrity="sha512-NXUhxhkDgZYOMjaIgd89zF2w51Mub53Ru3zCNp5LTlEzMbNNAjTjDbpURYGS5Mop2cU4b7re1nOIucsVlrx9fA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <%- style %>
+</head>
+<body>
+    
+    <%- include('header') -%>
+
+    <main class="main">
+        <div class="layout-main">
+            <%- body %>
+        </div>
+    </main>
+
+    <%- include('footer') -%>
+
+    <%- script %>
+    
+    <script>
+        <% if (flash.success && flash.success.length > 0) {%>
+        // Show success notification using Noty
+                     new Noty({
+                         theme: 'bootstrap-v4',
+                         text: '<%=flash.success%>',
+                         type: 'success',
+                         layout: 'topRight',
+                         timeout: 1500
+                     }).show();
+
+         <%}%>
+
+         <% if (flash.error && flash.error.length > 0) {%>
+        // Show error notification using Noty
+                     new Noty({
+                         theme: 'bootstrap-v4',
+                         text: '<%=flash.error%>',
+                         type: 'error',
+                         layout: 'topRight',
+                         timeout: 1500
+                     }).show();
+
+        <%}%>
+    </script>
+</body>
+</html>

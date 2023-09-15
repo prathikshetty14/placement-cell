@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="/css/companies.css">
+
+<div id="main-div-companies">
+
+    <h1>
+        Add Company Details
+    </h1>
+
+    <div id="headings">
+        <p>Name</p>
+        <p>Job description</p>
+        <p>Website</p>
+    </div>
+
+    <form action="/companies/add" method="POST">
+        <input type="text" name="name" placeholder="Company Name">
+        <select name="description" required>
+            <option disabled selected>Choose an option</option>
+            <option value="Front-End Web Developer">Front-End Web Developer</option>
+            <option value="Back-End Web Developer">Back-End Web Developer</option>
+            <option value="Full-Stack Web Developer">Full-Stack Web Developer</option>
+            <option value="Mobile App Developer">Mobile App Developer</option>
+            <option value="Software Engineer/Developer">Software Engineer/Developer</option>
+        </select>
+        <input type="text" name="website" placeholder="Company Website">
+
+        <button type="submit"> Add </button>
+    </form>
+
+    <hr>
+
+    <h1>View Company Details</h1>
+
+    <div id="company-info">
+        <% if(companies.length > 0){ %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Company Name</th>
+                        <th>Job Description</th>
+                        <th>Website</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% companies.forEach(company => { %>
+                        <tr>
+                            <td><%= company.name %></td>
+                            <td><%= company.description %></td>
+                            <td><a href="<%= company.website %>"> <%= company.name %> Link </a></td>
+                            <td>
+                                <button type="button">
+                                    <a href="/companies/deleteCompany/<%=company.id%>">Delete</a>
+                                </button>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <h2>No companies found.</h2>
+        <% } %>
+    </div>
+</div>

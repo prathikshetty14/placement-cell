@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/css/header.css">
+
+<header>
+    <div class="header-content">
+        <div>
+            <p class="title-style"><a href="/">Placement Cell</a></p>
+        </div>
+        
+        <div>
+            <ul>
+                <% if(locals.user) { %>
+                    <% if(locals.currentPage !== '/') { %>
+                        <li><a href="/">Back</a></li>
+                    <% } %>
+                    <li><a href="/user/logout">Logout</a></li>
+                    <li>Welcome <%=user.name%></li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</header>

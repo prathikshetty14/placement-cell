@@ -1,0 +1,21 @@
+<div>
+    <h1> Interviews for <%=student.name%> </h1>
+
+    <% if(interviews.length > 0) { %>
+        <ul>
+            <% interviews.forEach(interview => { %>
+                <li>
+                    <% interview.companyDetails.forEach(company => {%> 
+                        <strong>Company Name:</strong> <%= company.name %><br>
+                        <strong>Job Role:</strong> <%= company.description %><br>
+                    <% }) %>
+                    <strong>Interview Date & Time:</strong> <%= interview.interviewDate %><br>
+                    <strong>Status: </strong> <%= interview.status %>
+                </li>
+                <br>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p> No interviews found for this student. </p>
+    <% } %>
+</div>
