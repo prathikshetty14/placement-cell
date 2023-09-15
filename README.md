@@ -40,7 +40,29 @@ The Placement Cell project is designed to streamline and manage the placement-re
 
 ### Installation
 
-1. Install dependencies::
+1. Clone repository::
+
+   Download the project.
+   ```bash
+   cd main
+
+2. Install dependencies::
 
    ```bash
    npm install
+
+
+### Usage
+
+1. Start the server::
+
+   ```bash
+   npm start
+
+2. Access the application in your web browser at `http://localhost:8000`.
+   
+3. You can now create, manage, and track student profiles, company details, and interviews via the web interface.
+
+
+## Author
+*Prathik Shetty* - **Full Stack Developer**
