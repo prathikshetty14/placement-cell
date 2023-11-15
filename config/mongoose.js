@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 
-mongoose.connect(`mongodb://localhost:27017/placement_cell`);
+mongoose.connect(`mongodb+srv://prathikshetty1411:takeaguess@cluster0.otlqdb5.mongodb.net/?retryWrites=true&w=majority`);
 
 const db = mongoose.connection;
 
